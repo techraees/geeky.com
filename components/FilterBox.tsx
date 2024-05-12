@@ -41,7 +41,15 @@ const FilterBox = ({
         <Text className="operators_heading 2xl:text-[25px] xl:text-[22px] lg:text-[20px] md:text-[18px] text-[16px] font-[700]">
           Filters
         </Text>
-        <CloseIcon w={3} h={3} />
+        <CloseIcon
+          w={3}
+          h={3}
+          className="cursor-pointer"
+          onClick={() => {
+            setCitySelect(null);
+            setFerryType(null);
+          }}
+        />
       </Flex>
       <Text className="py-3 operators_span ">Operating In</Text>
 
@@ -86,7 +94,7 @@ const FilterBox = ({
                         checked={ferryType == item.code ? true : false}
                       />
                       <label
-                         onClick={() => {
+                        onClick={() => {
                           setFerryType(item.code);
                         }}
                         htmlFor="checkboxData cursor-pointer"
